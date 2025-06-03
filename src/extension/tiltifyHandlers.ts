@@ -42,7 +42,7 @@ function updateTotal(campaign: Campaign) {
  * Verifies that the payload delivered matches the signature provided, using sha256 algorithm and the webhook secret
  * Acts as middleware, use in route chain
  */
-function validateSignature(req: Request, res: Response, next: NextFunction) {
+function validateSignature(req: Request, res: Response, next?: NextFunction) {
     const signatureIn = req.get('X-Tiltify-Signature')
     const timestamp = req.get('X-Tiltify-Timestamp')
     const signedPayload = `${timestamp}.${JSON.stringify(req.body)}`
@@ -50,7 +50,7 @@ function validateSignature(req: Request, res: Response, next: NextFunction) {
     hmac.update(signedPayload);
     const signature = hmac.digest('base64');
     if (signatureIn === signature) {
-        next()
+        if (next != undefined) next()
     } else {
         // Close connection (200 code MUST be sent regardless)
         res.sendStatus(200)
