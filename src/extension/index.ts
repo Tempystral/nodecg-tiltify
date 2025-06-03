@@ -5,7 +5,7 @@ import { storeNodeCG, isEmpty } from './utils';
 
 export let WEBHOOK_MODE = true;
 
-module.exports = function (nodecg: NodeCG.ServerAPI<Configschema>) {
+export default function (nodecg: NodeCG.ServerAPI<Configschema>) {
 	if (isEmpty(nodecg.bundleConfig.tiltify_webhook_secret) || isEmpty(nodecg.bundleConfig.tiltify_webhook_id)) {
 		WEBHOOK_MODE = false
 		nodecg.log.info("Running without webhooks!! Please set webhook secret, and webhook id in cfg/nodecg-tiltify.json [See README]");
