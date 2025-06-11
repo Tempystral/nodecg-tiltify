@@ -18,7 +18,7 @@
     "dev": "concurrently --kill-others \"npm run watch -- --types\" \"npm run watch -- --browser\" \"npm run nodemon\""
   },
   "dependencies": {
-    "@ericthelemur/tiltify-api-client": "github:ericthelemur/tiltify-api-client",
+    "@ericthelemur/tiltify-api-client": "../tiltify-api-client",
     "express": "^5.1.0",
     "express-serve-static-core": "^0.1.1",
     "ts-node": "*"
