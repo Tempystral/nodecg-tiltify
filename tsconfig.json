@@ -1,3 +1,30 @@
 {
-	"extends": "./tsconfig.build.json"
+	"compilerOptions": {
+		"baseUrl": "src",
+		"rootDir": "src/extension",
+		"outDir": "extension",
+		// Required for parcel
+		//"isolatedModules": true,
+		"jsx": "react-jsx",
+		// Output related
+		"target": "ES2022",
+		"module": "NodeNext",
+		// Module resolution
+		"moduleResolution": "nodenext",
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+		// Type checking
+		"strict": true,
+		"skipLibCheck": true,
+		// Extra output
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"inlineSourceMap": false,
+	},
+	"include": [
+		"./src/**/*.ts",
+		"./src/**/*.tsx",
+		"../wasd-common/shared/custom.d.ts"
+	]
 }
