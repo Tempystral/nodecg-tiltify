@@ -19,7 +19,14 @@
       "$ref": "../common/timestamp.json"
     },
     "donor_comment": {
-      "type": "string"
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
     },
     "donor_name": {
       "type": "string"
