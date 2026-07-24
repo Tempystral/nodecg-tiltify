@@ -36,21 +36,28 @@
       "$ref": "../common/uuid-nullable.json"
     },
     "reward_claims": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "$ref": "../common/uuid.json"
-          },
-          "quantity": {
-            "type": "integer"
-          },
-          "reward_id": {
-            "$ref": "../common/uuid.json"
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "$ref": "../common/uuid.json"
+              },
+              "quantity": {
+                "type": "integer"
+              },
+              "reward_id": {
+                "$ref": "../common/uuid.json"
+              }
+            }
           }
         }
-      }
+      ]
     },
     "reward_id": {
       "$ref": "../common/uuid-nullable.json"
@@ -78,10 +85,7 @@
     },
     "modStatus": {
       "description": "true = approved, false = censored or null = undecided",
-      "type": [
-        "boolean",
-        "null"
-      ]
+      "type": ["boolean", "null"]
     }
   },
   "required": [

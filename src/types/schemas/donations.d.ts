@@ -20,12 +20,14 @@ export interface Donation {
 	legacy_id?: number;
 	poll_id?: string | null;
 	poll_option_id?: string | null;
-	reward_claims?: {
-		id?: string;
-		quantity?: number;
-		reward_id?: string;
-		[k: string]: unknown;
-	}[];
+	reward_claims?:
+		| null
+		| {
+				id?: string;
+				quantity?: number;
+				reward_id?: string;
+				[k: string]: unknown;
+		  }[];
 	reward_id?: string | null;
 	sustained?: boolean;
 	target_id?: string | null;
